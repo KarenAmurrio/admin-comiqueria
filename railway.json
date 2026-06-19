@@ -4,6 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "releaseCommand": "php artisan migrate --force && php artisan db:seed --force && php artisan storage:link"
+    "releaseCommand": "php artisan migrate --force && php artisan db:seed --force"
   }
 }
