@@ -110,6 +110,18 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/test-mail', function() {
+    try {
+        \Illuminate\Support\Facades\Mail::html('<h1>Prueba de Correo desde Railway</h1>', function($message) {
+            $message->to('karenamurriohuaygua@gmail.com')
+                    ->subject('Prueba de Correo en Producción');
+        });
+        return "Correo enviado con éxito.";
+    } catch (\Exception $e) {
+        return "Error al enviar correo: " . $e->getMessage();
+    }
+});
+
 // API Routes for Astro (public, no auth required)
 Route::get('/api/comics', function () {
     return response()->json(\App\Models\Comic::all());
