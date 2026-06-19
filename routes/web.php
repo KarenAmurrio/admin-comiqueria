@@ -106,6 +106,10 @@ function enviarCorreoPedido($pedido, $tipo) {
 }
 
 
+Route::get('/', function () {
+    return redirect('/login');
+});
+
 // API Routes for Astro (public, no auth required)
 Route::get('/api/comics', function () {
     return response()->json(\App\Models\Comic::all());
